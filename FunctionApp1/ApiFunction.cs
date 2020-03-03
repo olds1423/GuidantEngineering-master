@@ -36,7 +36,6 @@ namespace FunctionApp1
                 From = "yourbelovedson@gmail.com"
             
             };
-            log.LogInformation(MessageToMom);
 
             await letterCollector.AddAsync(message);
 
