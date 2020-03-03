@@ -28,6 +28,7 @@ namespace FunctionApp1
 
             //TODO calculate likelihood of receiving loan based on this decision tree
             // 100 percent likelihood (initial value) minus the probability expressed from the quotient of howmuch and the total maximum amount ($10000)
+            var quotient = (10000 / myQueueItem.HowMuch);
             var likelihoodOfLoan = 100; //percent minus the probability expressed? (myQueueItem.HowMuch / 10000) or does it mean (10000 / myQueueItem.HowMuch )
 
 
