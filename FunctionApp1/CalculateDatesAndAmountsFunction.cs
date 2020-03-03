@@ -45,10 +45,22 @@ namespace FunctionApp1
             {
                 var fundsAvailableDay = currentDayOfWeek.AddDays(12);
                 //why cant you AddDays to currentDayOfWeek?
-            };
+                //im accessing day of the week incorrectly. Need to refactor above variable 
+            }
+            else if (currentDayOfWeek == DayOfWeek.Saturday)
+            {
+                var fundsAvailableDay = currentDayOfWeek.AddDays(13);
+            }
+            else if (currentDayOfWeek != DayOfWeek.Saturday || currentDayOfWeek != DayOfWeek.Sunday)
+            {
+                var fundsAvailableDay = currentDayOfWeek.AddDays(14);
+            }
             //so if submitted on a weekday it will take two business weeks, which would be 14 days later accounting for two weekends 
             //but only 12 days if submitted on a sunday because it would be available on the second friday following?
             //if it were submitted on a saturday it would take 13 days because of the sunday the first week, 5 business days, one weeked, then available at the end of the next business week 
+
+
+
 
 
 
@@ -59,6 +71,14 @@ namespace FunctionApp1
             //Heading=Greeting
             //Likelihood = calculated likelihood
 
+
+            //create new form letter here and use above variables
+
+
+
+
+            //string letterBody = "Really need help: I need $5523.23 by December 12,2020";
+            //fundsAvailableDay
             await letterCollector.AddAsync(new FormLetter { });
             //add in in fields calculated above here as well as body in string form
         }
