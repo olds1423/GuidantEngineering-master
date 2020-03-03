@@ -37,8 +37,15 @@ namespace FunctionApp1
             // business days are weekdays, there are no holidays that are applicable
 
             var currentDate = DateTime.Today;
-            Console.WriteLine(currentDate);
+            Console.WriteLine(currentDate); 
             log.LogInformation("currentDate");
+            var currentDayOfWeek = currentDate.DayOfWeek;
+            log.LogInformation("currentDayOfWeek");
+            if (currentDayOfWeek == DayOfWeek.Sunday)
+            {
+                var fundsAvailableDay = currentDayOfWeek.AddDays(12);
+                //why cant you AddDays to currentDayOfWeek?
+            };
             //so if submitted on a weekday it will take two business weeks, which would be 14 days later accounting for two weekends 
             //but only 12 days if submitted on a sunday because it would be available on the second friday following?
             //if it were submitted on a saturday it would take 13 days because of the sunday the first week, 5 business days, one weeked, then available at the end of the next business week 
