@@ -29,8 +29,8 @@ namespace FunctionApp1
             //TODO calculate likelihood of receiving loan based on this decision tree
             // 100 percent likelihood (initial value) minus the probability expressed from the quotient of howmuch and the total maximum amount ($10000)
             var quotient = (10000 / myQueueItem.HowMuch);
-            var likelihoodOfLoan = 100; //percent minus the probability expressed? (myQueueItem.HowMuch / 10000) or does it mean (10000 / myQueueItem.HowMuch )
-
+            var likelihoodOfLoan = (100 - quotient); //1) is this being expressed as a percent? 2) (10000 / myQueueItem.HowMuch ) 3) or does it mean (myQueueItem.HowMuch / 10000) i think 2.
+            Console.WriteLine(likelihoodOfLoan);
 
             //TODO calculate approximate actual date of loan receipt based on this decision tree
             // funds will be made available 10 business days after day of submission  
