@@ -11,7 +11,7 @@ namespace FunctionApp1
     public class CalculateDatesAndAmountsFunction
     {
         [FunctionName("CalculateDatesAndAmountsFunction")]
-        public async Task Run([QueueTrigger("messagetomom", Connection = "")]MessageToMom myQueueItem, 
+        public async Task Run([QueueTrigger("messagetomom", Connection = "AzureWebJobsStorage")]MessageToMom myQueueItem, 
             [Queue("outputletter")] IAsyncCollector<FormLetter> letterCollector,
             ILogger log)
         {
@@ -38,6 +38,7 @@ namespace FunctionApp1
 
             var currentDate = DateTime.Today;
             Console.WriteLine(currentDate);
+            log.LogInformation("currentDate");
             //so if submitted on a weekday it will take two business weeks, which would be 14 days later accounting for two weekends 
             //but only 12 days if submitted on a sunday because it would be available on the second friday following?
             //if it were submitted on a saturday it would take 13 days because of the sunday the first week, 5 business days, one weeked, then available at the end of the next business week 
